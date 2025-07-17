@@ -124,7 +124,7 @@ BBWindow* bbCreateWindow( BBString *text,int x,int y,int w,int h,BBGroup *group,
 	BBWindow *gadget=_driver->createWindow( group,style );
 	gadget->setShape(x,y,w,h);
 	gadget->setText( text );
-	gadget->setVisible(true);
+	if ((style & 64) == 0) gadget->setVisible(true);
 	gadget->lockLayout();
 	return gadget;
 }
